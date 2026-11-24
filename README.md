@@ -12,8 +12,8 @@ docker-compose.yml  Makefile  .env.example  render.yaml
 
 | Tier | URL |
 |---|---|
-| Frontend | `https://<your-app>.vercel.app` |
-| Backend | `https://<your-backend>.onrender.com` — try `/health` |
+| Frontend | `https://lyftr-ai-chatbot-five.vercel.app` |
+| Backend | `https://lyftr-ai-chatbot-f94e.onrender.com` — try `/health` |
 | Repository | `https://github.com/Jashan2544/Lyftr_AI_Chatbot` |
 
 ## 2. Run locally: with Docker and without
