@@ -1,0 +1,28 @@
+services:
+  backend:
+    build: ./backend
+    container_name: lyftr-backend
+    env_file: .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/app.db}
+      CACHE_TYPE: ${CACHE_TYPE:-disk}
+      CACHE_DIR: /data/llm_cache
+    ports:
+      - "8000:8000"
+    volumes:
+      - app-data:/data
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: lyftr-frontend
+    environment:
+      API_URL: ${PUBLIC_API_URL:-http://localhost:8000}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  app-data:
